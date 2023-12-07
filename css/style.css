@@ -11,23 +11,8 @@ body {
     background-color: rgba(77, 65, 148, 0.578);
 }
 
-/* .items {
-    width: 30vw;
-    margin: 0 auto;
-}
-
-.item {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-img {
-    width: 100%;
-    border-radius: 20px;
-} */
-
 .carousel-container {
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(166, 113, 113);
     margin: 0 auto;
     width: 50%;
     height: 80vh;
@@ -45,5 +30,15 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  button {
+    background-color: rgba(90, 90, 90, 0.823);
+    color: white;
+    border-radius: 20px;
+    font-size: larger;
+    padding: 3px 10px;
+    position: relative; bottom: 40px;
+    margin: 0px 10px;
   }
 
