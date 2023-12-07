@@ -11,7 +11,7 @@ body {
     background-color: rgba(77, 65, 148, 0.578);
 }
 
-.items {
+/* .items {
     width: 30vw;
     margin: 0 auto;
 }
@@ -24,12 +24,26 @@ body {
 img {
     width: 100%;
     border-radius: 20px;
-}
+} */
 
-.active {
-    display: block;
-}
-
-.deactivate {
+.carousel-container {
+    background-color: rgb(48, 48, 48);
+    margin: 0 auto;
+    width: 50%;
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-item {
+    width: 100%;
+    height: 100%;
     display: none;
-}
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
