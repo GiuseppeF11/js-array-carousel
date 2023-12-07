@@ -1,3 +1,7 @@
-// Test funzionamento
+// Js-Array-Carousel
 
-console.log('Template html css js')
+/* 
+
+1)Fare il MARKUP STATICO: metti gli elementi nel Html e sistema come appaiono con Css
+
+*/
