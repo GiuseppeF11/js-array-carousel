@@ -14,8 +14,17 @@ tranne la prima.
 MILESTONE 3) Impostare funzione al click destro e sinistro per far cambiare immagine
 */
 
+/* 
 
 
+
+PRIMA SOLUZIONE
+
+
+
+*/
+
+/* 
 const carouselItems = document.querySelectorAll('.carousel-item');
 let currentIndex = 0;
 
@@ -32,20 +41,84 @@ function showSlide(index) {
 // All'avvio mostro la prima slide (che ha l'indice corrente)
 showSlide(currentIndex);
 
- /* Quando clicco il tasto next viene 
- incrementato il contatore e quindi mostrata
-  la slide seguente */
+// Quando clicco il tasto next viene incrementato il contatore e quindi mostrata la slide seguente
 document.getElementById('nextBtn').addEventListener('click', function() {
     currentIndex = (currentIndex + 1) % carouselItems.length;
     showSlide(currentIndex);
   });
 
-   /* Quando clicco il tasto prev viene 
- diminuito il contatore e quindi mostrata
-  la slide precedente */
-
+// Quando clicco il tasto prev viene diminuito il contatore e quindi mostrata la slide precedente
 document.getElementById('prevBtn').addEventListener('click', function () {
     currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
     showSlide(currentIndex);
   });
+
+ */
+
+
+
+
+/* 
+
+
+SECONDA SOLUZIONE
+
+
+*/
+//Creo le singole immagini
+
+const img1 = document.createElement('img');
+img1.setAttribute('src','img/01.webp')
+
+const img2 = document.createElement('img');
+img2.setAttribute('src','img/02.webp')
+
+const img3 = document.createElement('img');
+img3.setAttribute('src','img/03.webp')
+
+const img4 = document.createElement('img');
+img4.setAttribute('src','img/04.webp')
+
+const img5 = document.createElement('img');
+img5.setAttribute('src','img/05.webp')
+
+console.log(img1 , img2, img3, img4, img5);
+
+// metto le immagini dentro un array chiamato album
+
+const album = [img1 , img2, img3, img4, img5]
+
+//creo la slide dove appariranno le immagini
+const slide = document.createElement('div');
+console.log(slide , typeof slide);
+
+slide.classList.add('slide');
+
+//appendo la prima immagine alla slide
+slide.append(img1);
+
+//prendo il carousel-container da HTML e appendo dentro la slide che a sua volta ha dentro l'immagine
+const carouselContainer = document.getElementById('carousel-container');
+
+carouselContainer.append(slide)
+console.log(carouselContainer);
+
+/* 
+
+creo un ciclo che si attiva al click della freccia destra
+
+*/
+const nextBtn = document.getElementById('nextBtn');
+
+  /* 
+  Ogni volta che clicco sulla freccia si incrementa il ciclo che
+  partendo dalla prima immagine (i=0) mi mette nella slide quell'immagine.
+  Al click successivo si incrementa la variabile e quindi mette la seconda immagine */
+for (let i = 0 ; i < album.length ; i++) {
+  nextBtn.addEventListener('click', function() {
+  slide.append(album[i])
+})}
+
+
+
 

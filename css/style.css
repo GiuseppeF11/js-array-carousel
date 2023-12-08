@@ -11,7 +11,13 @@ body {
     background-color: rgba(77, 65, 148, 0.578);
 }
 
-.carousel-container {
+/* 
+
+PRIMA SOLUZIONE
+
+*/
+
+/* .carousel-container {
     background-color: rgb(166, 113, 113);
     margin: 0 auto;
     width: 50%;
@@ -41,4 +47,34 @@ body {
     position: relative; bottom: 40px;
     margin: 0px 10px;
   }
+ */
 
+
+ /* 
+ 
+ 
+ SECONDA SOLUZIONE
+ 
+ 
+ */
+
+ .carousel-container {
+  width: 50%;
+  margin: 0 auto;
+ }
+
+ img {
+  width: 100%;
+ }
+
+ .slide {
+  padding-top: 30px;
+  width: 30vw;
+  margin: 0 auto;
+ }
+
+ button {
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 20px;
+ }
