@@ -51,74 +51,80 @@ document.getElementById('nextBtn').addEventListener('click', function() {
 document.getElementById('prevBtn').addEventListener('click', function () {
     currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
     showSlide(currentIndex);
-  });
-
- */
+  }); */
 
 
 
+// Creo l'array delle immagini
 
-/* 
+const images = [
+  './img/01.webp' ,  // Posizione 1 --> Indice 0
+  './img/02.webp' ,
+  './img/03.webp' ,
+  './img/04.webp' ,
+  './img/05.webp'    // Posizione N --> Indice N - 1
+];
 
+console.log('images', images, images.length, typeof images);
 
-SECONDA SOLUZIONE
+const itemsContainer = document.querySelector('.items')
 
+//Con il for possiamo accedere agli elementi dell'array
 
-*/
-//Creo le singole immagini
+for (let i = 0 ; i < images.length ; i++ ) {
+  // console.log ('Creo l\'elemento i-esimo dentro items', i);
 
-const img1 = document.createElement('img');
-img1.setAttribute('src','img/01.webp')
+  let itemActive = 'item';
 
-const img2 = document.createElement('img');
-img2.setAttribute('src','img/02.webp')
+  if (i == 0) {
+    itemActive += ' active';
+  }
 
-const img3 = document.createElement('img');
-img3.setAttribute('src','img/03.webp')
+  itemsContainer.innerHTML += `
+      <div class="${itemActive}">
+          <img src="${images[i]}" alt="">
+      </div>`;
+}
 
-const img4 = document.createElement('img');
-img4.setAttribute('src','img/04.webp')
+//MILESTONE 3
 
-const img5 = document.createElement('img');
-img5.setAttribute('src','img/05.webp')
+const prevBtn = document.querySelector('.prevBtn');
+console.log('prevBtn' , prevBtn , typeof prevBtn);
 
-console.log(img1 , img2, img3, img4, img5);
+const nextBtn = document.querySelector('.nextBtn');
+console.log('nextBtn' , nextBtn , typeof nextBtn);
 
-// metto le immagini dentro un array chiamato album
+let allItems = document.querySelectorAll('.item');
+console.log('allitems' , allItems , typeof allItems);
 
-const album = [img1 , img2, img3, img4, img5]
+let imgAttiva = 0;
 
-//creo la slide dove appariranno le immagini
-const slide = document.createElement('div');
-console.log(slide , typeof slide);
+nextBtn.addEventListener('click', function(){
+  if (imgAttiva < (allItems.length -1)) {
 
-slide.classList.add('slide');
+      //Tolgo la classe active dall'elemento attualmente visibile
+    allItems[imgAttiva].classList.remove('active');
 
-//appendo la prima immagine alla slide
-slide.append(img1);
+    // Incremento la variabile
+    imgAttiva++ ;
 
-//prendo il carousel-container da HTML e appendo dentro la slide che a sua volta ha dentro l'immagine
-const carouselContainer = document.getElementById('carousel-container');
+    //Aggiungo la classe active all'elemento successivo
+    allItems[imgAttiva].classList.add('active');  
+  }
+})
 
-carouselContainer.append(slide)
-console.log(carouselContainer);
+prevBtn.addEventListener('click', function(){
+  if (imgAttiva > 0) {
 
-/* 
+      //Tolgo la classe active dall'elemento attualmente visibile
+    allItems[imgAttiva].classList.remove('active');
 
-creo un ciclo che si attiva al click della freccia destra
+    // Incremento la variabile
+    imgAttiva-- ;
 
-*/
-const nextBtn = document.getElementById('nextBtn');
-
-  /* 
-  Ogni volta che clicco sulla freccia si incrementa il ciclo che
-  partendo dalla prima immagine (i=0) mi mette nella slide quell'immagine.
-  Al click successivo si incrementa la variabile e quindi mette la seconda immagine */
-for (let i = 0 ; i < album.length ; i++) {
-  nextBtn.addEventListener('click', function() {
-  slide.append(album[i])
-})}
-
-
+    //Aggiungo la classe active all'elemento successivo
+    allItems[imgAttiva].classList.add('active'); 
+  }
+})
 
 
