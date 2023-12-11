@@ -111,6 +111,17 @@ nextBtn.addEventListener('click', function(){
     //Aggiungo la classe active all'elemento successivo
     allItems[imgAttiva].classList.add('active');  
   }
+
+  // PER IL CICLO INFINITO
+
+  else if (imgAttiva = (allItems.length -1)) { // Se l'immagine attiva è l'ultima
+
+  allItems[imgAttiva].classList.remove('active');
+
+  imgAttiva = 0 ;  //  Selezionami la prima immagine
+
+  allItems[imgAttiva].classList.add('active');  
+}
 })
 
 prevBtn.addEventListener('click', function(){
@@ -124,6 +135,16 @@ prevBtn.addEventListener('click', function(){
 
     //Aggiungo la classe active all'elemento successivo
     allItems[imgAttiva].classList.add('active'); 
+  }
+
+  // PER IL CICLO INFINITO 
+  else if (imgAttiva == 0) {    // (Se l'immagine attiva è la prima )
+
+    allItems[imgAttiva].classList.remove('active');
+  
+    imgAttiva = (allItems.length - 1);  //  (Selezionami l'ultima immagine)
+  
+    allItems[imgAttiva].classList.add('active');  
   }
 })
 
