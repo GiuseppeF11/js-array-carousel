@@ -94,10 +94,47 @@ console.log('prevBtn' , prevBtn , typeof prevBtn);
 const nextBtn = document.querySelector('.nextBtn');
 console.log('nextBtn' , nextBtn , typeof nextBtn);
 
+const playBtn = document.querySelector('.playBtn');
+console.log('playBtn' , playBtn , typeof playBtn);
+
+const pauseBtn = document.querySelector('.pauseBtn');
+console.log('pauseBtn' , pauseBtn , typeof pauseBtn);
+
 let allItems = document.querySelectorAll('.item');
 console.log('allitems' , allItems , typeof allItems);
 
 let imgAttiva = 0;
+
+//   BONUS
+var clock = setInterval(autoPlay, 3000);
+function autoPlay() {
+  if (imgAttiva < (allItems.length -1)) {
+
+    //Tolgo la classe active dall'elemento attualmente visibile
+  allItems[imgAttiva].classList.remove('active');
+
+  // Incremento la variabile
+  imgAttiva++ ;
+
+  //Aggiungo la classe active all'elemento successivo
+  allItems[imgAttiva].classList.add('active');
+
+  playBtn.addEventListener('click', function() {
+    clearInterval(clock)
+  })
+}
+
+// PER IL CICLO INFINITO
+
+else if (imgAttiva = (allItems.length -1)) { // Se l'immagine attiva è l'ultima
+
+allItems[imgAttiva].classList.remove('active');
+
+imgAttiva = 0 ;  //  Selezionami la prima immagine
+
+allItems[imgAttiva].classList.add('active');  
+}
+}
 
 nextBtn.addEventListener('click', function(){
   if (imgAttiva < (allItems.length -1)) {
@@ -147,5 +184,4 @@ prevBtn.addEventListener('click', function(){
     allItems[imgAttiva].classList.add('active');  
   }
 })
-
 
